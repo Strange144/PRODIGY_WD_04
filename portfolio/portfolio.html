@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family:'Times New Roman', Times, serif ;
+}
+.navbar {
+  background-color: #333;
+  padding-top: 10px ;
+  padding-bottom: 5px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure the navbar is on top of other content */
+}
+
+.nav-list {
+  list-style-type: none;
+  text-align: center;
+}
+
+.nav-list li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.nav-list li:last-child {
+  margin-right: 0;
+}
+
+.nav-list li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-list li a:hover {
+  color: #0068cd;
+}
+
+.colorful-div {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  padding-top: 60px; /* Adjust margin-top to accommodate the fixed navbar */
+}
+    #myimg{
+      float: left;
+      padding-left: 100px;
+    }
+    
+    #name{
+      float: left;
+      color: white;
+    }
+
+    #menu{
+      color: white;
+      float: right;
+      padding-right: 100px;     
+    }
+    .Home{
+      padding-left: 100px;
+      padding-right: 100px;
+      height: 100vh;
+      display: flex; /* Use flexbox */
+      background: linear-gradient(to right, #bbb 50%, #0068cd 50%);
+    }
+
+
+    /* Modal styles */
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1001; /* Higher z-index for the modal */
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    /* Close button style */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .left{
+      height: 100vh;
+      width:50%;
+      background-color: #bbb;
+    }
+    .right{
+      height: 100vh;
+      width:50%;
+      background-color: #0068cd;
+    }
+    #hello{
+      font-size: 20px;
+      color:#0068cd;
+    }
+    h1{
+      height: 20%;
+      width: 70%;
+      font-size: 70px;
+    }
+    .text{
+      height: 360px;
+      position: relative;
+      margin-top: 80px;
+    }
+    .auto-type{
+      position: absolute;
+      font-size: large;
+      color: #0068cd;
+      bottom: 0;
+    }
+    .icons{
+      width: 35%;
+      display: flex;
+      margin-top: 20px;
+      justify-content: space-between;
+    }
+    i{
+      font-size: 30px;
+    }
+  #ic:hover {
+  color: #0068cd;
+  font-size: 32px;
+  transition: color 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+#resume{
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  width:125px;
+  background-color: #0068cd;
+  height: 40px;
+  font-size: 15px;
+  font-style: oblique;
+  margin-top: 30px;
+}
+#resume:hover{
+  background-color: #1472d0;
+  box-shadow:0 0 10px #6aa8e7;
+}
+.srcdw{
+  padding: 0 106px;
+}
+
+.services{
+  height: 100vh;
+   padding-top: 25vh; 
+  background: linear-gradient(to right, #bbb 50%, #0068cd 50%);
+}
+
+
+
+#boxl{
+  height: 20vh;
+  width: 30vw;
+  border:black solid 2px;
+  margin:5vh 20vh;
+  text-align: center;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+}
+#boxr{
+  height: 20vh;
+  width: 30vw;
+  border:black solid 2px;
+  margin:5vh 20vh;
+  text-align: center;
+  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+}
+.lefts {
+  height: 100vh;
+  width: 50%;
+  background-color: #0068cd;
+  float: right;
+  z-index: -2;
+}
+
+.rights {
+  height: 100vh;
+  width: 50%;
+  background-color:#0068cd;
+  float: right;
+  z-index: -2;
+}
+.skill{
+  height: 40vh;
+  background: linear-gradient(to right, #0068cd 50%, #bbbbbb 50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+.s{
+  height: 40vh;
+  width: 100vw;
+  margin-left: 100px;
+  margin-right: 100px;
+ display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+#sk{
+  font-size: 70px;
+}
+.projects{
+  height: 100vh;
+  background-color:#0068cd;
+
+}
+.imgbox{
+            height: 80vh;
+            width: 80vw;
+            position: absolute;
+            z-index: 1;
+            display: flex; /* Added flexbox */
+            justify-content: space-between; /* Center horizontally */
+            padding: 20px;
+            align-items: center; /* Center vertically */
+        }
+        .circle{
+            width: 100vw; /* Adjusted width to fit within viewport width */
+            height: 100vh;
+            background-color: #bbb;
+            clip-path: circle(40.5% at 81.45% 1%);
+            position: absolute;
+            z-index: 0;
+        }
+        .circles{
+            width: 100vw; /* Adjusted width to fit within viewport width */
+            height: 100vh;
+            background-color: #bbb;
+            clip-path: circle(39% at 19.1% 0);
+            position: absolute;
+            z-index: 0;
+        }
+        .circle1{
+            width: 100vw; /* Adjusted width to fit within viewport width */
+            height: 100vh;
+            background-color: #bbb;
+            clip-path: circle(43.5% at 15.55% 100%);
+        }
+        .circle11 {
+        width: 100vw;
+        height: 100vh;
+        background-color: #bbb;
+        clip-path: circle(40.0% at 19.5% 0);
+        position: relative;
+        z-index: 0; /* Change the z-index to a negative value */
+        transform: rotate(180deg);
+        bottom: 0;
+        right: 0;
+      }
+        .project {
+          background-color: #0068cd;
+            display: flex; /* Added flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            position: relative; /* Added position property */
+            height: 100vh; /* Added height */
+        }
+        .box1{
+            height: 70vh;
+            width: 40vw;
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column; /* Align items vertically */
+            border: black solid 2px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .hedding{
+            width: 100%;
+            text-align: center; /* Center the text horizontally */
+        }
+        .imginbox1,
+        .imginbox2,
+        .imginbox3 {
+            width: 20vw;
+            height: 25vh;
+            margin: 10px 5px; 
+            background-size: cover;
+            border-radius: 10px;
+            transition: background-image 0.5s ease; /* Added transition property */
+        }
+        .textbox {
+            height: 25vh;
+            margin: 10px; /* Adjust margin as needed */
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contact{
+        height: 100vh;
+        background-color:#bbb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .circle2 {
+    width: 100vw; /* Adjusted width to fit within viewport width */
+    height: 100vh;
+    background-color: #0068cd;
+    clip-path: circle(46.3% at 86% 0);
+    position: absolute;
+    z-index: 0;
+    right: 0; /* Adjusted to position the circle on the right */
+}
+
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 10px 0;
+}
+
+.footer-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+.conbox{
+  height: 60vh;
+  width: 30vw;
+  z-index: 1;
+  border:black solid 2px;
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+}
+#label{
+  font-size: 30px;
+  margin-top: 20px;
+}
+input{
+  width: 60%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #bbb;
+  color: #0068cd;
+  border: black solid 2px;
+}
+textarea{
+  width: 60%;
+  height: 150px;
+  border-radius: 5px;
+  border: black solid 2px;
+  background-color: #bbb;
+  color:#0068cd;
+}
+#n{
+  margin-top: 30px;
+  margin-left:40px;
+}
+#textarea{
+  font-size:23px;
+}
+#t{
+  margin-left:30px ;
+}
+#e{margin-left: 40px;}
+#sub{
+  margin-top: 30px;
+  margin-left: 200px;
+  height: 40px;
+  width: 120px;
+  border-radius: 15px;
+  background-color: #0068cd;
+  border:none;
+}
+#sub:hover{
+  background-color: #1472d0;
+  box-shadow:0 0 10px #6aa8e7;
+}
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav data-aos="fade-down" data-aos-easing="linear"
+  data-aos-duration="500" class="navbar">
+    <img id="myimg" src="myimg.png" width="50px" onclick="toggleModal()">
+    <pre id="name">  Ansul 
+ Joshi</pre>
+ <ul class="nav-list">
+  <li><a href="#Home" class="nav-link">Home</a></li>
+  <li><a href="#services" class="nav-link">Services</a></li>
+  <li><a href="#skill" class="nav-link">Skills</a></li>
+  <li><a href="#project" class="nav-link">Project</a></li>
+  <li><a href="#contact" class="nav-link">Contact</a></li>
+  <i class="ri-menu-line" id="menu"></i>
+</ul>
+  </nav>
+
+  <!-- Modal container -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="toggleModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <div class="Home" id="Home" >
+    <div class="left" data-aos="fade" data-aos-easing="linear"
+    data-aos-duration="500">
+      <div class="text">
+      <h1><pre>
+<span id="hello">Hello !</span>
+I have 
+experience in
+web deveplopment</pre></h1>
+<span class="auto-type" ></span>
+</div>
+<div class="icons">
+  <i id="ic" class="ri-facebook-circle-fill"></i><i id="ic" class="ri-instagram-line"></i><i id="ic" class="ri-twitter-x-line"></i><i id="ic" class="ri-linkedin-box-fill"></i><i id="ic" class="ri-github-fill"></i>
+</div>
+<button id="resume" >My Resume</button>
+    </div>
+    <div class="right" data-aos="zoom-in-up" data-aos-easing="linear"
+    data-aos-duration="500">
+      <img src="finalmying.png" width="528px" alt="cartoon" class="srcdw">
+    </div>
+  </div>
+  <div class="services" id="services">
+    <div class="circles" ></div>
+    <div class="lefts">
+      <div data-aos="fade-left" id="boxr">
+        <h2 data-aos="zoom-in" data-aos-easing="linear"
+        data-aos-duration="1000" style="border-bottom: black solid 2px;">Database Manager</h2>
+        <p data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000">Designing and optimizing database schemas, ensuring efficient data storage and retrieval while maintaining data integrity.</p>
+      </div>
+      <div data-aos="fade-left" id="boxr">
+        <h2 data-aos="zoom-in" data-aos-easing="linear"
+        data-aos-duration="1000" style="border-bottom: black solid 2px;">Mantainace and support</h2>
+        <p data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000">Providing ongoing maintenance and support services to ensure the smooth functioning of web applications, including bug fixes, performance optimization, and feature enhancements.</p>
+      </div>
+      <div data-aos="fade-left" id="boxr">
+        <h2 data-aos="zoom-in" data-aos-easing="linear"
+        data-aos-duration="1000" style="border-bottom: black solid 2px;">React Developer</h2>
+        <p data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000">Crafting interactive and dynamic user interfaces with React, leveraging its component-based architecture and virtual DOM for efficient rendering.</p>
+      </div>
+    </div>
+    <div class="rights">
+      <div data-aos="fade-right" id="boxl">
+        <h2 data-aos="zoom-in" data-aos-easing="linear"
+        data-aos-duration="1000" style="border-bottom: black solid 2px;">Web Developer</h2>
+        <p data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000">We specialize in crafting custom websites that blend creativity with functionality, ensuring a seamless user experience and maximum impact for your online presence.</p>
+      </div>
+      <div data-aos="fade-right" id="boxl">
+        <h2 data-aos="zoom-in" data-aos-easing="linear"
+        data-aos-duration="1000" style="border-bottom: black solid 2px;">Front-end Developer</h2>
+        <p data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000">
+        We specialize in front-end development, creating visually stunning and user-friendly interfaces that engage your audience and elevate your brand.</p>
+      </div>
+      <div data-aos="fade-right" id="boxl">
+        <h2 data-aos="zoom-in" data-aos-easing="linear"
+        data-aos-duration="1000" style="border-bottom: black solid 2px;">Back-end Developer</h2>
+        <p data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000">Our back-end development expertise ensures your website runs smoothly and efficiently behind the scenes, handling complex data and delivering dynamic functionalities.</p>
+      </div>
+    </div>
+    <div class="circle11" ></div>
+</div>
+      
+  <div class="skill" id="skill">
+    <div class="s">
+    <i id="sk" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="250" class="ri-html5-fill"></i>
+    <i id="sk" data-aos="fade-right"  data-aos-easing="linear" data-aos-duration="500" class="ri-css3-fill"></i>
+    <i id="sk" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="750" class="ri-javascript-fill"></i>
+    <i id="sk" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="750" class="ri-reactjs-fill"></i>
+    <i id="sk" data-aos="fade-left"  data-aos-easing="linear" data-aos-duration="500" class="ri-database-2-fill"></i>
+    <i id="sk" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="250" class="ri-java-fill"></i>
+  </div>
+  </div>
+  <div class="project" id="project">
+    <div class="circle" ></div>
+    <div class="imgbox">
+        <div class="box1" data-aos="fade-right" data-aos-easing="linear"
+        data-aos-duration="500">
+            <div class="hedding">
+                <h2>landing page</h2>
+            </div>
+            <div class="imginbox1"></div>
+            <div class="textbox">
+                <p>The Capcake landing page is a charming portal into the world of artisanal cupcakes. With enticing visuals and concise descriptions, it invites visitors to explore a variety of delicious flavors. User-friendly navigation ensures a delightful experience, enticing users to indulge their sweet cravings and perhaps place an order.</p>
+            </div>
+        </div>
+        <div class="box1" data-aos="fade" data-aos-easing="linear"
+        data-aos-duration="1000" >
+            <div class="hedding">
+                <h2>HealthHub</h2>
+            </div>
+            <div class="imginbox2"></div>
+            <div class="textbox">
+                <p>Health Hub is your ultimate online destination for all things fitness and wellness. Featuring a suite of powerful tools, including a BMI calculator, macro calculator, calorie counter, workout tracker, progress tracker, and food tracker, it's your one-stop shop for achieving your health goals.</p>
+            </div>
+        </div>
+        <div class="box1" data-aos="fade-left" data-aos-easing="linear"
+        data-aos-duration="500">
+            <div class="hedding">
+                <h2>To Do List</h2>
+            </div>
+            <div class="imginbox3"></div>
+            <div class="textbox">
+                <p>The TodoList landing page is a sleek interface designed to streamline your task management. With intuitive features and a minimalist design, it offers a seamless experience for organizing your daily activities. From simple task entry to prioritization and deadline setting, TodoList empowers users to stay focused and productive.</p>
+            </div>
+        </div>
+    </div>
+    <div class="circle1"></div>
+</div>
+<div class="contact" id="contact">
+  <div class="circle2"></div>
+  <div class="conbox" data-aos="fade" data-aos-easing="linear"
+  data-aos-duration="1000">
+    <form action="/my-handling-form-page" method="post" data-aos="fade-right" data-aos-easing="linear"
+    data-aos-duration="500">
+     <div id="n"> <label id="label">Name :</label>
+      <input type="text"></div><br>
+      <div id="e"><label id="label">Email :</label>
+      <input type="text"></div><br>
+      <div id="t"><label id="textarea">Message :</label>
+      <textarea >Enter your msg here</textarea></div>
+      <button id="sub">Submit</button>
+    </form>
+    
+  </div>
+</div>
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2024 Strange. All rights reserved.</p>
+    <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a></p>
+  </div>
+</footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 200, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: true, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', 
+    });
+  </script>
+<script>
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("modalImg");
+  var isModalOpen = false;
+
+  function toggleModal() {
+    if (!isModalOpen) {
+      modal.style.display = "block";
+      modalImg.src = document.getElementById('myimg').src;
+      isModalOpen = true;
+    } else {
+      modal.style.display = "none";
+      isModalOpen = false;
+    }
+  }
+</script>
+<script>
+  var typed=new Typed(".auto-type",{
+    strings:[
+"Innovative coder blending creativity and precision to build impactful digital solutions.",
+"Tech enthusiast shaping tomorrow's world, one line of code at a time.",
+"Creative problem-solver coding dreams into reality, one project at a time."],
+    typeSpeed:15,
+    loop:true
+  })
+</script>
+<script>
+  // Arrays of image URLs for each imginbox
+  const imageUrls1 = [
+      'landpp.png',
+      'landpink.png',
+      'landbrown.png'
+  ];
+
+  const imageUrls2 = [
+      'home.png',
+      'hh.png',
+      'login.png'
+  ];
+
+  const imageUrls3 = [
+      'todolist.png',
+  ];
+
+  // Function to change images in imginbox divs
+  function changeImages() {
+      const imgInBox1 = document.querySelector('.imginbox1'); // Select the imginbox1 element
+      const imgInBox2 = document.querySelector('.imginbox2'); // Select the imginbox2 element
+      const imgInBox3 = document.querySelector('.imginbox3'); // Select the imginbox3 element
+
+      imgInBox1.style.backgroundImage = `url(${imageUrls1[Math.floor(Math.random() * imageUrls1.length)]})`; // Change the background image URL for imginbox1
+      imgInBox2.style.backgroundImage = `url(${imageUrls2[Math.floor(Math.random() * imageUrls2.length)]})`; // Change the background image URL for imginbox2
+      imgInBox3.style.backgroundImage = `url(${imageUrls3[Math.floor(Math.random() * imageUrls3.length)]})`; // Change the background image URL for imginbox3
+  }
+
+  // Initial call to change images
+  changeImages();
+
+  // Interval to change images every 5 seconds (5000 milliseconds)
+  setInterval(changeImages, 2000);
+</script>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+
+      const targetId = this.getAttribute('href').substring(1);
+      const targetDiv = document.getElementById(targetId);
+
+      if (targetDiv) {
+        targetDiv.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+});
+  </script>
+
+</body>
+</html>
